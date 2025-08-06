@@ -1,0 +1,705 @@
+@media (min-width: 700px) {
+  .App {
+    min-width: 700px;
+  }
+  .myHeader {
+    position: fixed;
+    top: 60px;
+    max-width: 800px;
+  }
+  .myHeader > a {
+    font-size: 16px;
+  }
+  .myHeader > img {
+    height: 60px;
+  }
+  .resumeButton {
+    left: 0%;
+    top: 46%;
+    svg {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .scButton {
+    font-size: 1rem;
+    width: 130px;
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .headStats,
+  .leftWristStats,
+  .rightWristStats,
+  .rightAnkleStats,
+  .leftAnkleStats {
+    width: 35px;
+    height: 35px;
+  }
+  .bodyPart {
+    position: relative;
+    left: 0px;
+    font-size: 1rem;
+  }
+  .leftWristStats.animateStat2 .bodyPart {
+    position: absolute;
+    left: -120px;
+  }
+  .bodyPartIRR {
+    position: relative;
+    right: 125px;
+    font-size: 1rem;
+  }
+  .statDeets {
+    scale: 1;
+    top: -40px;
+    left: 40px;
+    height: 10px;
+  }
+  .statDeetsIRR {
+    scale: 1;
+    left: -90px;
+    top: -50px;
+  }
+  .fill-line1,
+  .fill-line2,
+  .fill-line3,
+  .fill-line4 {
+    left: 25px;
+    max-width: 100px;
+  }
+  .fill-line2 {
+    left: -92px;
+    transform: rotate(180deg);
+  }
+  .leftWristStats.animateStat2 .fill-line1.filled {
+    transform: translateX(-118px);
+  }
+}
+.App {
+  padding-top: 200px;
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 70px;
+  min-width: 700px;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #6805f2 0%, #310273 50%, #09001c 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.myHeader {
+  background-color: #211c28;
+  width: 80%;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 10px;
+  max-width: 800px;
+  z-index: 5;
+}
+.footerContainer {
+  color: white;
+}
+.footerContainer a {
+  color: white;
+}
+.footerContainer p {
+  color: white;
+}
+.myHeader > a {
+  text-decoration: none;
+  color: white;
+}
+.myHeader > img {
+  height: 70px;
+  text-decoration: none;
+  color: white;
+}
+.videoComponents {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+}
+.punchLine {
+  padding: 0px 10px;
+  color: white;
+}
+.checkOut {
+  text-decoration: line-through;
+}
+.highlight {
+  background: linear-gradient(to top, #f5f5f5, #dcd6f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(104, 5, 242, 0.5);
+}
+
+.resumeButton {
+  position: absolute;
+  z-index: 1;
+  background: none;
+  border: none;
+  left: 0%;
+  top: 46%;
+  opacity: 0;
+  animation: fadeUp 1.5s ease 600ms forwards;
+}
+
+.scButton {
+  box-shadow: 0 0 8px rgba(170, 0, 255, 0.5), 0 0 16px rgba(170, 0, 255, 0.35),
+    0 0 24px rgba(170, 0, 255, 0.25);
+
+  background-color: #a259ff;
+  border-radius: 50px;
+  border: none;
+  padding: 20px;
+  opacity: 0;
+  animation: fadeUp 1.5s ease 600ms forwards;
+  color: white;
+}
+.scComponents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.myVideo {
+  position: absolute;
+  z-index: 0;
+  box-shadow: 0 0 12px rgba(170, 0, 255, 0.9), 0 0 24px rgba(170, 0, 255, 0.7),
+    0 0 36px rgba(170, 0, 255, 0.6);
+}
+
+.headStats,
+.leftWristStats,
+.rightWristStats,
+.rightAnkleStats,
+.leftAnkleStats {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: rgba(104, 5, 242, 0.3);
+  border: 2px solid #6805f2;
+  left: 35%;
+  top: 30%;
+  opacity: 0;
+  z-index: 1;
+}
+.headStats {
+  position: absolute;
+  left: 37%;
+  top: 44%;
+}
+.rightWristStats {
+  left: 30%;
+  top: 62%;
+}
+.rightAnkleStats {
+  left: 18%;
+  top: 62%;
+}
+.leftAnkleStats {
+  left: 42.5%;
+  top: 83%;
+}
+.leftWristStats.animateStat2 {
+  top: 40%;
+  left: 38%;
+  animation: flash 200ms ease 600ms forwards;
+}
+
+.headStats.animateStat2 {
+  top: 20%;
+  left: 43%;
+  animation: flash 200ms ease 200ms forwards;
+}
+
+.rightAnkleStats.animateStat2 {
+  top: 50%;
+  left: 32%;
+  animation: flash 200ms ease 800ms forwards;
+}
+.rightWristStats.animateStat2 {
+  top: 37%;
+  left: 51%;
+  animation: flash 200ms ease 400ms forwards;
+}
+.leftAnkleStats.animateStat2 {
+  top: 65%;
+  left: 43%;
+  animation: flash 200ms ease 1000ms forwards;
+}
+.leftWristStats.animateStat {
+  animation: flash 200ms ease 200ms forwards;
+}
+
+.headStats.animateStat {
+  animation: flash 200ms ease 400ms forwards;
+}
+
+.rightAnkleStats.animateStat {
+  animation: flash 200ms ease 600ms forwards;
+}
+.rightWristStats.animateStat {
+  animation: flash 200ms ease 800ms forwards;
+}
+.leftAnkleStats.animateStat {
+  animation: flash 200ms ease 1000ms forwards;
+}
+.fill-line1,
+.fill-line2,
+.fill-line3,
+.fill-line4 {
+  z-index: 2;
+  position: relative;
+  background: none;
+  border: 1px solid #6805f2;
+  width: 0%;
+  left: 25px;
+  border-radius: 10px;
+  height: 0px;
+}
+.leftWristStats.animateStat2 .fill-line1.filled {
+  transform: translateX(-118px);
+}
+.fill-line2 {
+  left: -92px;
+  transform: rotate(180deg);
+}
+.fill-line1.filled {
+  animation: fillBar 500ms ease 200ms forwards;
+}
+
+.fill-line2.filled {
+  animation: fillBar 500ms ease 200ms forwards;
+}
+
+.fill-line3.filled {
+  animation: fillBar 500ms ease 200ms forwards;
+}
+
+.fill-line4.filled {
+  animation: fillBar 500ms ease 200ms forwards;
+}
+
+.bodyPart,
+.bodyPartIRR {
+  width: 150px;
+  color: white;
+  padding: 3px 0px 0px 3px;
+  opacity: 0;
+  height: 10px;
+}
+.bodyPartIRR {
+  position: relative;
+  right: 125px;
+}
+.leftWristStats.animateStat2 .bodyPart {
+  position: absolute;
+  left: -120px;
+}
+.bodyPart.movedUp,
+.bodyPartIRR.movedUp {
+  animation: fadeUp 500ms ease 400ms forwards;
+}
+
+.statDeets {
+  position: relative;
+  top: -40px;
+  left: 40px;
+  height: 10px;
+}
+
+.statDeetsIRR {
+  position: relative;
+  left: -90px;
+  top: -50px;
+}
+.leftWristStats.animateStat2 .statDeets {
+  position: relative;
+  left: -100px;
+}
+.statDesc-a,
+.statDesc-b {
+  position: relative;
+  color: white;
+  opacity: 0;
+  width: 55px;
+  font-size: 1px;
+}
+.statDesc-a {
+  z-index: 2;
+}
+.headStats.animateStat2 .statDesc-a,
+.headStats.animateStat2 .statDesc-b {
+  color: #09001c;
+}
+/* .statDesc-b {
+  background: rgba(0, 0, 0, 0.6);
+  height: 50px;
+  width: 50px;
+  padding-right: 120px;
+  padding-bottom: 40px;
+} */
+.statDeetsIRR .statDesc-b {
+  width: 50px;
+  /* padding-right: 100px; */
+}
+
+.statDesc-b {
+  position: relative;
+  top: -60px;
+}
+.statDesc-a.descShow,
+.statDesc-b.descShow {
+  font-size: 16px;
+
+  animation: fadeUp 500ms ease 200ms forwards;
+}
+.progress-bar-a,
+.progress-bar-b,
+.progress-bar-c,
+.progress-bar-d,
+.progress-bar-e {
+  position: relative;
+  left: 60px;
+  height: 15px;
+  top: -16px;
+}
+.progress-bar-b,
+.progress-bar-d {
+  position: relative;
+  top: -75px;
+  width: 100px;
+}
+
+.progress-bar-a.fillStat,
+.progress-bar-b.fillStat,
+.progress-bar-c.fillStat,
+.progress-bar-d.fillStat,
+.progress-bar-e.fillStat {
+  width: 0px;
+  background-color: #6805f2;
+  animation: fillBard2Thirds 1.3s ease 500ms forwards;
+}
+.progress-bar-b.fillStat {
+  animation: fillBarHalf 1.3s ease 500ms forwards;
+}
+.progress-bar-c.fillStat {
+  animation: fillBarStat 1.3s ease 500ms forwards;
+}
+.progress-bar-d.fillStat {
+  animation: fillBarThird 1.3s ease 500ms forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fillBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100px;
+  }
+}
+@keyframes fillBarStat {
+  0% {
+    width: 0%;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+@keyframes fillBarHalf {
+  0% {
+    width: 0%;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 50px;
+  }
+}
+@keyframes fillBarThird {
+  0% {
+    width: 0%;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 33px;
+  }
+}
+@keyframes fillBard2Thirds {
+  0% {
+    width: 0%;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 66px;
+  }
+}
+@keyframes myPulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/**
+
+
+
+
+dimming css 
+
+
+
+
+
+**/
+.dimPlayerLeft.Dim1,
+.dimPlayerLeft.Dim2 {
+  position: absolute;
+  width: 15%;
+  max-width: 1200px;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  animation: fadeRight 1.5s ease 50ms forwards;
+}
+.dimPlayerLeft.Dim2 {
+  width: 30%;
+  animation: fadeRight2 1.5s ease 50ms forwards;
+}
+.dimPlayerRight.Dim1,
+.dimPlayerRight.Dim2 {
+  position: absolute;
+  width: 15%;
+  max-width: 1200px;
+  height: 100%;
+  left: 52%;
+  padding-left: 33%;
+  background-color: black;
+  opacity: 0;
+  animation: fadeLeft 1.5s ease 50ms forwards;
+}
+.dimPlayerRight.Dim2 {
+  left: 61%;
+  animation: fadeLeft 1.5s ease 50ms forwards;
+}
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+
+    width: 0px;
+  }
+  to {
+    opacity: 0.8;
+
+    width: 15%;
+  }
+}
+@keyframes fadeRight2 {
+  from {
+    opacity: 0;
+
+    width: 0px;
+  }
+  to {
+    opacity: 0.8;
+
+    width: 30%%;
+  }
+}
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  to {
+    opacity: 0.8;
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+}
+
+/*dimming css end*/
+
+/*buttons css */
+.switch {
+  box-shadow: 0 0 8px rgba(170, 0, 255, 0.5), 0 0 16px rgba(170, 0, 255, 0.35),
+    0 0 24px rgba(170, 0, 255, 0.25);
+  border-radius: 28px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fde6ef;
+  transition: 0.3s;
+  border-radius: 28px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #4b0082;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #a259ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+.toggleGroup {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  color: white;
+  top: -50px;
+  max-width: 1200px;
+}
+/*buttons css end */
+
+@media (max-width: 700px) {
+  .App {
+    min-width: 400px;
+    justify-content: center;
+    align-items: center;
+  }
+  .myHeader {
+    position: fixed;
+    top: 60px;
+    min-width: 200px;
+    justify-content: space-between;
+  }
+  .myHeader > a {
+    font-size: 12px;
+  }
+  .myHeader > img {
+    height: 40px;
+  }
+
+  .resumeButton {
+    top: 40%;
+    left: -2%;
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  .scButton {
+    font-size: 0.7rem;
+    width: 80px;
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .headStats,
+  .leftWristStats,
+  .rightWristStats,
+  .rightAnkleStats,
+  .leftAnkleStats {
+    width: 20px;
+    height: 20px;
+  }
+  .bodyPart {
+    position: relative;
+    left: -20px;
+    font-size: 0.7rem;
+  }
+  .leftWristStats.animateStat2 .bodyPart {
+    position: relative;
+    left: -110px;
+  }
+  .bodyPartIRR {
+    position: relative;
+    left: -110px;
+    font-size: 0.7rem;
+  }
+  .statDeets {
+    scale: 0.7;
+    left: 20px;
+  }
+  .statDeetsIRR {
+    scale: 0.7;
+    left: -77px;
+  }
+  .fill-line1,
+  .fill-line2,
+  .fill-line3,
+  .fill-line4 {
+    max-width: 50px;
+    left: 15px;
+  }
+  .fill-line2 {
+    left: -48px;
+    transform: rotate(180deg);
+  }
+  .leftWristStats.animateStat2 .fill-line1.filled {
+    transform: translateX(-62px);
+  }
+}

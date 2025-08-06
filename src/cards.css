@@ -1,0 +1,221 @@
+.radarCard {
+  padding: 0%;
+  margin: 0%;
+  background-color: #d8cce8;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(170, 0, 255, 0.9), 0 0 24px rgba(170, 0, 255, 0.7),
+    0 0 36px rgba(170, 0, 255, 0.6);
+  padding: 1.5rem;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 600px;
+  gap: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.cardTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #4b3f5b;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 0%;
+  margin: 0%;
+}
+.playerCards {
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.statCards {
+  display: flex;
+  gap: 140px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.barComponents {
+  padding: 0%;
+  margin: 0%;
+  background-color: #d8cce8;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(170, 0, 255, 0.9), 0 0 24px rgba(170, 0, 255, 0.7),
+    0 0 36px rgba(170, 0, 255, 0.6);
+  padding: 1.5rem;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 600px;
+  gap: 30px;
+}
+
+.playerCard {
+  background: radial-gradient(circle at center, #9b7fc2, #d0d0d0 75%);
+  padding-top: 50px;
+  width: 400px;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 100px;
+  box-shadow: 0 0 12px rgba(170, 0, 255, 0.9), 0 0 24px rgba(170, 0, 255, 0.7),
+    0 0 36px rgba(170, 0, 255, 0.6);
+}
+.playerImg {
+  position: relative;
+  left: -100px;
+}
+.card-content {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: "Arial Black", sans-serif;
+  padding: 0%;
+}
+.player-rating {
+  position: absolute;
+  left: 230px;
+  top: -140px;
+  font-size: 5rem;
+  color: #3a0066;
+  text-shadow: 0 0 4px #a64dff, 0 0 8px #a64dff, 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.player-name {
+  position: absolute;
+  top: -50px;
+  left: 195px;
+  font-size: 2rem;
+  margin-top: 10px;
+  text-shadow: 0 0 4px #d5a6ff, 0 0 6px #d5a6ff, 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.player-stats {
+  background: linear-gradient(135deg, #c0c0c0, #e0e0e0, #c0c0c0);
+  color: #4b3f5b;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  padding-top: 25px;
+  width: 100%;
+  height: 270px;
+}
+.playerMeasures {
+  position: absolute;
+  right: 80px;
+}
+.gameType {
+  position: absolute;
+  right: 75px;
+  top: 160px;
+}
+.playingStyle {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  gap: 30px;
+}
+.styleDesc {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  top: 45px;
+  gap: 30px;
+  left: 90px;
+  font-size: 14px;
+}
+.playingPos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3a0066;
+  height: 50px;
+  box-shadow: 0 0 12px rgba(170, 0, 255, 0.9), 0 0 24px rgba(170, 0, 255, 0.7),
+    0 0 36px rgba(170, 0, 255, 0.6);
+  position: absolute;
+  top: 185px;
+  left: 90px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  text-shadow: 0 0 4px #d5a6ff, 0 0 6px #d5a6ff, 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 30px;
+}
+.chart-container {
+  width: 100%;
+  height: 100%;
+}
+.chart-container2 {
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 700px) {
+  .radarCard {
+    height: 400px;
+    width: 600px;
+    padding-right: 20px;
+    padding-left: 20px;
+    flex-direction: row;
+    margin-bottom: 200px;
+  }
+  .cardTitle {
+    font-size: 1.8rem;
+  }
+  .playerCards {
+    gap: 140px;
+  }
+  .barComponents {
+    height: 400px;
+    width: 600px;
+  }
+  .playerCard {
+    scale: 1;
+  }
+}
+@media (max-width: 700px) {
+  .radarCard {
+    width: 250px;
+    height: 330px;
+    flex-direction: column;
+    margin-bottom: 100px;
+    align-items: center;
+    padding-right: 0%;
+    padding-left: 0%;
+  }
+  .cardTitle {
+    font-size: 0.8rem;
+    padding: 0%;
+    margin: 0%;
+  }
+  .playerCards {
+    gap: 50px;
+  }
+  .barComponents {
+    width: 350px;
+    height: 250px;
+  }
+  .playerCard {
+    scale: 0.65;
+  }
+}
