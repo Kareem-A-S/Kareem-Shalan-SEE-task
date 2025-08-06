@@ -73,10 +73,70 @@ function Video() {
     videoCtrl.current.play();
     changeResume(false);
   };
+  // const handleScreenshot = async () => {
+  //   const source = screenshotTarget.current;
+  //   if (!source) return;
+  //   const clone = source.cloneNode(true);
+  //   const copyComputedStyles = (sourceEl, targetEl) => {
+  //     const computedStyle = getComputedStyle(sourceEl);
+  //     for (let prop of computedStyle) {
+  //       targetEl.style[prop] = computedStyle.getPropertyValue(prop);
+  //     }
+
+  //     Array.from(sourceEl.children).forEach((child, i) => {
+  //       copyComputedStyles(child, targetEl.children[i]);
+  //     });
+  //   };
+
+  //   copyComputedStyles(source, clone);
+  //   const originalVideo = source.querySelector("video");
+  //   const cloneVideo = clone.querySelector("video");
+
+  //   if (originalVideo && cloneVideo) {
+  //     const videoCanvas = document.createElement("canvas");
+  //     videoCanvas.width = originalVideo.videoWidth;
+  //     videoCanvas.height = originalVideo.videoHeight;
+  //     const ctx = videoCanvas.getContext("2d");
+  //     ctx.drawImage(originalVideo, 0, 0, videoCanvas.width, videoCanvas.height);
+  //     const videoImg = document.createElement("img");
+  //     videoImg.src = videoCanvas.toDataURL("image/png");
+  //     videoImg.style.width = originalVideo.clientWidth + "px";
+  //     videoImg.style.height = originalVideo.clientHeight + "px";
+  //     cloneVideo.parentNode.replaceChild(videoImg, cloneVideo);
+  //   }
+  //   const offscreen = document.createElement("div");
+  //   offscreen.style.position = "absolute";
+  //   offscreen.style.top = "0";
+  //   offscreen.style.left = "-10000px";
+  //   offscreen.style.zIndex = "-9999";
+  //   offscreen.appendChild(clone);
+  //   document.body.appendChild(offscreen);
+
+  //   await new Promise((res) => requestAnimationFrame(res));
+  //   await new Promise((res) => requestAnimationFrame(res));
+
+  //   html2canvas(clone, {
+  //     useCORS: true,
+  //     backgroundColor: null,
+  //     logging: true,
+  //     scale: 2,
+  //   }).then((canvas) => {
+  //     const dataURL = canvas.toDataURL("image/png");
+
+  //     const link = document.createElement("a");
+  //     link.href = dataURL;
+  //     link.download = `video-ui-screenshot-${Date.now()}.png`;
+  //     link.click();
+
+  //     document.body.removeChild(offscreen);
+  //   });
+  // };
   const handleScreenshot = async () => {
     const source = screenshotTarget.current;
     if (!source) return;
+
     const clone = source.cloneNode(true);
+
     const copyComputedStyles = (sourceEl, targetEl) => {
       const computedStyle = getComputedStyle(sourceEl);
       for (let prop of computedStyle) {
@@ -89,21 +149,38 @@ function Video() {
     };
 
     copyComputedStyles(source, clone);
+
     const originalVideo = source.querySelector("video");
     const cloneVideo = clone.querySelector("video");
 
     if (originalVideo && cloneVideo) {
-      const videoCanvas = document.createElement("canvas");
-      videoCanvas.width = originalVideo.videoWidth;
-      videoCanvas.height = originalVideo.videoHeight;
-      const ctx = videoCanvas.getContext("2d");
-      ctx.drawImage(originalVideo, 0, 0, videoCanvas.width, videoCanvas.height);
-      const videoImg = document.createElement("img");
-      videoImg.src = videoCanvas.toDataURL("image/png");
-      videoImg.style.width = originalVideo.clientWidth + "px";
-      videoImg.style.height = originalVideo.clientHeight + "px";
-      cloneVideo.parentNode.replaceChild(videoImg, cloneVideo);
+      try {
+        const videoCanvas = document.createElement("canvas");
+        videoCanvas.width = originalVideo.videoWidth;
+        videoCanvas.height = originalVideo.videoHeight;
+        const ctx = videoCanvas.getContext("2d");
+        ctx.drawImage(
+          originalVideo,
+          0,
+          0,
+          videoCanvas.width,
+          videoCanvas.height
+        );
+
+        const videoImg = document.createElement("img");
+        videoImg.src = videoCanvas.toDataURL("image/png");
+        videoImg.style.width = originalVideo.clientWidth + "px";
+        videoImg.style.height = originalVideo.clientHeight + "px";
+
+        cloneVideo.parentNode.replaceChild(videoImg, cloneVideo);
+      } catch (err) {
+        console.warn(
+          "Video frame could not be drawn due to CORS restrictions:",
+          err
+        );
+      }
     }
+
     const offscreen = document.createElement("div");
     offscreen.style.position = "absolute";
     offscreen.style.top = "0";
@@ -121,21 +198,34 @@ function Video() {
       logging: true,
       scale: 2,
     }).then((canvas) => {
-      const dataURL = canvas.toDataURL("image/png");
+      try {
+        const dataURL = canvas.toDataURL("image/png");
 
-      const link = document.createElement("a");
-      link.href = dataURL;
-      link.download = `video-ui-screenshot-${Date.now()}.png`;
-      link.click();
-
-      document.body.removeChild(offscreen);
+        const link = document.createElement("a");
+        link.href = dataURL;
+        link.download = `video-ui-screenshot-${Date.now()}.png`;
+        link.click();
+      } catch (err) {
+        console.error(
+          "Screenshot failed due to canvas security restrictions:",
+          err
+        );
+      } finally {
+        document.body.removeChild(offscreen);
+      }
     });
   };
 
   return (
     <>
       <div ref={screenshotTarget} className="videoComponents">
-        <video ref={videoCtrl} muted width="100%" className="myVideo">
+        <video
+          ref={videoCtrl}
+          muted
+          width="100%"
+          className="myVideo"
+          crossOrigin="anonymous"
+        >
           <source src="/resources/video.mp4" type="video/mp4" />
           Invalid video format!
         </video>
