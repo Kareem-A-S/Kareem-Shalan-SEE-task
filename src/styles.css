@@ -129,6 +129,7 @@ body {
 }
 .videoComponents {
   position: relative;
+  overflow: hidden;
   display: flex;
   width: 100%;
   max-width: 1200px;
@@ -516,7 +517,7 @@ dimming css
   max-width: 1200px;
   height: 100%;
   left: 52%;
-  padding-left: 33%;
+  padding-left: 50%;
   background-color: black;
   opacity: 0;
   animation: fadeLeft 1.5s ease 50ms forwards;
