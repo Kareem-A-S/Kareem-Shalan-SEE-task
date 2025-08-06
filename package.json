@@ -1,11 +1,10 @@
 {
-  "name": "react-typescript",
+  "name": "see-app",
   "version": "1.0.0",
-  "description": "React and TypeScript example starter project",
+  "description": "React project",
   "keywords": [
-    "typescript",
-    "react",
-    "starter"
+    "jsx and javascript",
+    "react"
   ],
   "main": "src/index.jsx",
   "dependencies": {
