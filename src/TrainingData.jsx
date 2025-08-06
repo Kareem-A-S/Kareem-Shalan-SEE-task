@@ -53,11 +53,11 @@ const options = {
 function PlayerInfo() {
   return (
     <div className="radarCard">
-      <h2 className="cardTitle">
+      <h2 className="cardTitle roboto-serif-font">
         Training <br />
         Efficiency
       </h2>
-      <div className="chart-container2">
+      <div className="chart-container2 ">
         <Radar data={data} options={options} />
       </div>
     </div>

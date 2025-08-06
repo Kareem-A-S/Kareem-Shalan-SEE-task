@@ -41,14 +41,14 @@ function PlayerCard() {
         </g>
       </svg>
       <div className="card-content">
-        <div className="player-rating">91</div>
-        <div className="player-name">RONALDO</div>
+        <div className="player-rating roboto-serif-font">91</div>
+        <div className="player-name roboto-serif-font">RONALDO</div>
         <div className="player-stats">
           <div className="playerMeasures">
-            <div>PAC 90</div>
-            <div>SHO 93</div>
-            <div>PAS 81</div>
-            <div>DRI 89</div>
+            <div className="roboto-serif-font">PAC 90</div>
+            <div className="roboto-serif-font">SHO 93</div>
+            <div className="roboto-serif-font">PAS 81</div>
+            <div className="roboto-serif-font">DRI 89</div>
           </div>
           <div className="gameType">
             <svg fill="#000000" width="80px" height="80px" viewBox="0 0 50 50">
@@ -146,11 +146,11 @@ function PlayerCard() {
               </g>
             </svg>
           </div>
-          <div className="styleDesc">
+          <div className="styleDesc roboto-serif-font">
             <p>Great Tackler</p>
             <p>Play-Maker</p>
           </div>
-          <div className="playingPos">
+          <div className="playingPos roboto-serif-font">
             <p>ST</p>
           </div>
         </div>

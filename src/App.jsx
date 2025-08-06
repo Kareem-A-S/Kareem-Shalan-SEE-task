@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div className="App">
       <Header />
-      <h2 className="punchLine">
+      <h2 className="punchLine roboto-serif-font">
         Beyond <span className="checkOut">Guesswork</span>. Into Measured{" "}
         <span className="highlight">Accuracy</span>.
       </h2>

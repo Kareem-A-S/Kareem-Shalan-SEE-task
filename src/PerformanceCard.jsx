@@ -46,7 +46,7 @@ ChartJS.register(
 function PerformanceStats() {
   return (
     <div className="barComponents">
-      <h2 className="cardTitle">Metrics</h2>
+      <h2 className="cardTitle roboto-serif-font">Metrics</h2>
       <div className="chart-container">
         <Chart type="bar" data={data} />
       </div>

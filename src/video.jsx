@@ -73,64 +73,7 @@ function Video() {
     videoCtrl.current.play();
     changeResume(false);
   };
-  // const handleScreenshot = async () => {
-  //   const source = screenshotTarget.current;
-  //   if (!source) return;
-  //   const clone = source.cloneNode(true);
-  //   const copyComputedStyles = (sourceEl, targetEl) => {
-  //     const computedStyle = getComputedStyle(sourceEl);
-  //     for (let prop of computedStyle) {
-  //       targetEl.style[prop] = computedStyle.getPropertyValue(prop);
-  //     }
 
-  //     Array.from(sourceEl.children).forEach((child, i) => {
-  //       copyComputedStyles(child, targetEl.children[i]);
-  //     });
-  //   };
-
-  //   copyComputedStyles(source, clone);
-  //   const originalVideo = source.querySelector("video");
-  //   const cloneVideo = clone.querySelector("video");
-
-  //   if (originalVideo && cloneVideo) {
-  //     const videoCanvas = document.createElement("canvas");
-  //     videoCanvas.width = originalVideo.videoWidth;
-  //     videoCanvas.height = originalVideo.videoHeight;
-  //     const ctx = videoCanvas.getContext("2d");
-  //     ctx.drawImage(originalVideo, 0, 0, videoCanvas.width, videoCanvas.height);
-  //     const videoImg = document.createElement("img");
-  //     videoImg.src = videoCanvas.toDataURL("image/png");
-  //     videoImg.style.width = originalVideo.clientWidth + "px";
-  //     videoImg.style.height = originalVideo.clientHeight + "px";
-  //     cloneVideo.parentNode.replaceChild(videoImg, cloneVideo);
-  //   }
-  //   const offscreen = document.createElement("div");
-  //   offscreen.style.position = "absolute";
-  //   offscreen.style.top = "0";
-  //   offscreen.style.left = "-10000px";
-  //   offscreen.style.zIndex = "-9999";
-  //   offscreen.appendChild(clone);
-  //   document.body.appendChild(offscreen);
-
-  //   await new Promise((res) => requestAnimationFrame(res));
-  //   await new Promise((res) => requestAnimationFrame(res));
-
-  //   html2canvas(clone, {
-  //     useCORS: true,
-  //     backgroundColor: null,
-  //     logging: true,
-  //     scale: 2,
-  //   }).then((canvas) => {
-  //     const dataURL = canvas.toDataURL("image/png");
-
-  //     const link = document.createElement("a");
-  //     link.href = dataURL;
-  //     link.download = `video-ui-screenshot-${Date.now()}.png`;
-  //     link.click();
-
-  //     document.body.removeChild(offscreen);
-  //   });
-  // };
   const handleScreenshot = async () => {
     const source = screenshotTarget.current;
     if (!source) return;
@@ -218,7 +161,7 @@ function Video() {
 
   return (
     <>
-      <div ref={screenshotTarget} className="videoComponents">
+      <div ref={screenshotTarget} className="videoComponents roboto-serif-font">
         <video
           ref={videoCtrl}
           muted
@@ -266,14 +209,18 @@ function Video() {
           onMouseEnter={() => setIsHovered5(true)}
           onMouseLeave={() => setIsHovered5(false)}
         >
-          <div className="bar-container">
+          <div className="bar-container   roboto-serif-font ">
             <div className={`fill-line1 ${isHovered5 ? "filled" : ""}`}></div>
-            <div className={`bodyPart ${isHovered5 ? "movedUp" : ""}`}>
+            <div
+              className={`  roboto-serif-font bodyPart ${
+                isHovered5 ? "movedUp" : ""
+              }`}
+            >
               Head
             </div>
             <div className={`statDeets ${isHovered5 ? "showStatBar" : ""}`}>
               <div
-                className={`statDesc-a ${
+                className={`  roboto-serif-font statDesc-a ${
                   isHovered5 && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -285,7 +232,7 @@ function Video() {
                 }`}
               ></div>
               <div
-                className={`statDesc-b ${
+                className={`  roboto-serif-font statDesc-b ${
                   isHovered5 && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -309,12 +256,16 @@ function Video() {
         >
           <div className="bar-container">
             <div className={`fill-line1 ${isHovered ? "filled" : ""}`}></div>
-            <div className={`bodyPart ${isHovered ? "movedUp" : ""}`}>
+            <div
+              className={`  roboto-serif-font bodyPart ${
+                isHovered ? "movedUp" : ""
+              }`}
+            >
               Left Wrist
             </div>
             <div className={`statDeets ${isHovered ? "showStatBar" : ""}`}>
               <div
-                className={`statDesc-a ${
+                className={`  roboto-serif-font statDesc-a ${
                   isHovered && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -326,7 +277,7 @@ function Video() {
                 }`}
               ></div>
               <div
-                className={`statDesc-b ${
+                className={`  roboto-serif-font statDesc-b ${
                   isHovered && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -351,12 +302,16 @@ function Video() {
         >
           <div className="bar-container">
             <div className={`fill-line3 ${isHovered2 ? "filled" : ""}`}></div>
-            <div className={`bodyPart ${isHovered2 ? "movedUp" : ""}`}>
+            <div
+              className={`bodyPart  roboto-serif-font  ${
+                isHovered2 ? "movedUp" : ""
+              }`}
+            >
               Right Wrist
             </div>
             <div className={`statDeets ${isHovered2 ? "showStatBar" : ""}`}>
               <div
-                className={`statDesc-a ${
+                className={`statDesc-a  roboto-serif-font  ${
                   isHovered2 && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -368,7 +323,7 @@ function Video() {
                 }`}
               ></div>
               <div
-                className={`statDesc-b ${
+                className={`statDesc-b  roboto-serif-font  ${
                   isHovered2 && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -393,12 +348,16 @@ function Video() {
         >
           <div className="bar-container">
             <div className={`fill-line4 ${isHovered3 ? "filled" : ""}`}></div>
-            <div className={`bodyPart ${isHovered3 ? "movedUp" : ""}`}>
+            <div
+              className={`bodyPart  roboto-serif-font  ${
+                isHovered3 ? "movedUp" : ""
+              }`}
+            >
               Left Ankle
             </div>
             <div className={`statDeets ${isHovered3 ? "showStatBar" : ""}`}>
               <div
-                className={`statDesc-a ${
+                className={`statDesc-a  roboto-serif-font  ${
                   isHovered3 && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -410,7 +369,7 @@ function Video() {
                 }`}
               ></div>
               <div
-                className={`statDesc-b ${
+                className={`statDesc-b  roboto-serif-font  ${
                   isHovered3 && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -435,12 +394,16 @@ function Video() {
         >
           <div className="bar-container">
             <div className={`fill-line2 ${isHovered4 ? "filled" : ""}`}></div>
-            <div className={`bodyPartIRR ${isHovered4 ? "movedUp" : ""}`}>
+            <div
+              className={`bodyPartIRR   roboto-serif-font ${
+                isHovered4 ? "movedUp" : ""
+              }`}
+            >
               Right Ankle
             </div>
             <div className={`statDeetsIRR ${isHovered4 ? "showStatBar" : ""}`}>
               <div
-                className={`statDesc-a ${
+                className={`statDesc-a   roboto-serif-font ${
                   isHovered4 && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -452,7 +415,7 @@ function Video() {
                 }`}
               ></div>
               <div
-                className={`statDesc-b ${
+                className={`statDesc-b  roboto-serif-font  ${
                   isHovered4 && dispPoints ? "descShow" : ""
                 }`}
               >
@@ -470,7 +433,7 @@ function Video() {
       </div>
       <div className="toggleGroup">
         <div className="toggleButtons">
-          <p className="toggleTitle">Toggle Dimming</p>
+          <p className="toggleTitle  roboto-serif-font ">Toggle Dimming</p>
           <label className="switch">
             <input
               type="checkbox"
@@ -484,7 +447,7 @@ function Video() {
         </div>
         {showResumeBttn && (
           <button className="scButton" onClick={handleScreenshot}>
-            <div className="scComponents">
+            <div className="scComponents  roboto-serif-font ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="35"
@@ -501,7 +464,7 @@ function Video() {
           </button>
         )}
         <div className="toggleButtons">
-          <p className="toggleTitle">Toggle Stats</p>
+          <p className="toggleTitle roboto-serif-font ">Toggle Stats</p>
           <label className="switch">
             <input
               type="checkbox"
